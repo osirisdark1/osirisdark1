@@ -1,12 +1,21 @@
-- 👋 Hi, I’m @osirisdark1
-- 👀 I’m interested in coding
-- 🌱 I’m currently learning about software development
-- 💞️ I’m looking to collaborate on ...
-- 📫 How to reach me ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
+# FastAPI Circuit Generator
 
-<!---
-osirisdark1/osirisdark1 is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-You can click the Preview link to take a look at your changes.
---->
+This project exposes a small API built with [FastAPI](https://fastapi.tiangolo.com/) that uses the OpenAI API to generate circuit designs from text prompts.
+
+## Installation
+
+Install the required Python packages:
+
+```bash
+pip install -r requirements.txt
+```
+
+## Running the server
+
+Set the `OPENAI_API_KEY` environment variable and start the development server with:
+
+```bash
+uvicorn main:app --reload
+```
+
+The API will be available at `http://127.0.0.1:8000` by default.
