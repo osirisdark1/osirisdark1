@@ -6,7 +6,7 @@ import os
 from uuid import uuid4
 
 from kicad_integration import save_design_to_project, open_in_kicad
-from vscode_workspace import create_workspace
+from vscode_workspace import create_workspace, open_in_vscode
 
 load_dotenv()
 
@@ -61,10 +61,12 @@ async def generate_circuit_workspace(prompt: Prompt):
     sch_path = save_design_to_project(design, project_dir)
     workspace = f"{project_dir}.code-workspace"
     create_workspace(project_dir, workspace)
-    opened = open_in_kicad(str(sch_path))
+    opened_kicad = open_in_kicad(str(sch_path))
+    opened_vscode = open_in_vscode(workspace)
     return {
         "design": design,
         "workspace": workspace,
         "kicad_project": project_dir,
-        "opened_in_kicad": opened,
+        "opened_in_kicad": opened_kicad,
+        "opened_in_vscode": opened_vscode,
     }
